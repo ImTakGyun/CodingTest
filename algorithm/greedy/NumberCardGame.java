@@ -24,7 +24,7 @@ public class NumberCardGame {
                 int value = Integer.parseInt(st.nextToken());
                 min = Math.min(value, min);
             }
-            max = Math.max(min, 0);
+            max = Math.max(min, max);
         }
 
         System.out.println(max);
