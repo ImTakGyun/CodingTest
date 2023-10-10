@@ -20,15 +20,18 @@ public class UntilOne {
         k = st.nextInt();
 
         // 초기 답안 -> 내것이 더 직관인 것 같다.
-        while(n>1) {
+        while(n>=k) {
             if (n % k == 0) {
                 n /= k;
                 count++;
             } else {
-                n -= 1;
-                count++;
+                int minus = n - (n/k)*k;
+                n -= minus;
+                count += minus;
             }
         }
+
+        count += (n - 1);
 
 //        // 나동빈 답안
 //        while(true) {
