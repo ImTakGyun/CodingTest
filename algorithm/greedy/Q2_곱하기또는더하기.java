@@ -3,7 +3,7 @@ package algorithm.greedy;
 import java.util.*;
 import java.io.*;
 
-public class AddOrMul {
+public class Q2_곱하기또는더하기 {
 
     // 해결 아이디어 : 0, 1 이 나온 경우 곱하면 더 작아지거나 그대로임 따라서 0 또는 1인 경우는 더하기를 하는게 효율적
     public static void main(String[] args) throws IOException {
