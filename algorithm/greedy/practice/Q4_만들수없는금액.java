@@ -1,4 +1,4 @@
-package algorithm.greedy;
+package algorithm.greedy.practice;
 
 import java.util.*;
 import java.io.*;

@@ -1,4 +1,4 @@
-package algorithm;
+package Bakjoon;
 
 import java.util.*;
 
