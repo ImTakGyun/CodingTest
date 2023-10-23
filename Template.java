@@ -5,8 +5,19 @@ public class Template {
     static int n, m;
     static int[][] board;
 
-//  private void tokenizing() throws IOException { st = new StringTokenizer(r.readLine()); }
-//  private int nextInt() { return Integer.parseInt(st.nextToken()); }
+    // 2차원 리스트 90도 회전하기
+    public int[][] rotateMatrixBy90Degree(int[][] a){
+        int n = a.length;
+        int m = a[0].length;
+
+        int[][] result = new int[m][n];
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                result[j][n - i - 1] = a[i][j];
+            }
+        }
+        return result;
+    }
 
     private void solution() throws IOException {
 
