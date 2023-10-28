@@ -44,5 +44,14 @@ public class Practice {
         }
     }
 
-
 }
+/**
+ *  # Map 출력
+ *     for(int r = 0; r < n; r++){
+ *             for(int t = 0; t < n; t++){
+ *             System.out.print(arr[r][t]);
+ *             }
+ *             System.out.println();
+ *             }
+ *             System.out.println();
+ */
