@@ -3,7 +3,7 @@ package algorithm.Search.Practice;
 import java.util.*;
 import java.io.*;
 
-public class Q_정렬배열에서_특정수의개수{
+public class Q27_정렬배열에서_특정수의개수 {
 
     public int lowerBound(int[] arr, int target, int start, int end) {
 
@@ -62,7 +62,7 @@ public class Q_정렬배열에서_특정수의개수{
     }
 
     public static void main(String[] args) throws IOException{
-        new Q_정렬배열에서_특정수의개수().solution();
+        new Q27_정렬배열에서_특정수의개수().solution();
     }
 
 }
