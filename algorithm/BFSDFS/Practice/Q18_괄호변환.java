@@ -57,7 +57,7 @@ public class Q18_괄호변환 {
     /**
      *   "균형잡힌 괄호 문자열"의 인덱스 반환
      *
-     *   이코테 함수 : count를 이용하여 '(' 가 등장하면 +1, '('가 등장하면 -1 함으로써 <for문내에서 count가 0이되는 곳의 i(index)를 반환>
+     *   이코테 함수 : count를 이용하여 '(' 가 등장하면 +1, ')'가 등장하면 -1 함으로써 <for문내에서 count가 0이되는 곳의 i(index)를 반환>
      *     public int balancedIndex(String p) {
      *         int count = 0; // 왼쪽 괄호의 개수
      *         for (int i = 0; i < p.length(); i++) {
