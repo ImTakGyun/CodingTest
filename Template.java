@@ -59,6 +59,31 @@ public class Template {
         return rightIndex - leftIndex;
     }
 
+    /**
+     *  누적합 구하기 템플릿 -> 특정 공간까지의 누적합을 구하기 위해 해당 공간의 값과 그 위와 왼쪽의 누적합을 더하고 겹치는 부분에 대한 누적합을 뺸다.
+     *                     특정 공간(A)에서 다른 공간(B)까지의 부분합을 구하기 위해서는 B까지의 누적합에서 A가 존재하는 가로, 세로 공간의 -1 만큼의 공간에 대한 누적합을 빼고 겹쳐있던 공간을 더한다.
+     */
+    public void 누적합(){
+
+        int[][] arr = new int[n][n];
+        int[][] prefixSum = new int[n + 1][n + 1];
+        // 누적합 구하기 -> 0 ~ n-1인 arr의 누적합을 0 ~ n의 prefixSum이라는 누적합 배열로 선언하여 1~n에 각 누적합이 들어가게 설계, x = 0 OR y = 0 라인은 x = 1 OR y = 1 라인을 만들기 위한 공간
+        for (int i = 1; i < n + 1; i++) {
+            for (int j = 1; j < n + 1; j++) {
+                prefixSum[i][j] = arr[i - 1][j - 1] + prefixSum[i][j - 1] + prefixSum[i - 1][j] - prefixSum[i - 1][j - 1];
+            }
+        }
+
+        int max = 0;
+
+        // i,j 에서 x(i+m-1), y(j+m-1)까지의 합 => (x,y)까지의 누적합 - (x,j-1)까지의 누적합 - (i-1,y)까지의 누적합 + (i-1, j-1)까지의 누적합(겹치는 부분)
+        for (int i = 1; i < (n + 1) - m + 1; i++) {
+            for (int j = 1; j < (n + 1) - m + 1; j++) {
+                int sum = prefixSum[i + m - 1][j + m - 1] - prefixSum[i + m - 1][j - 1] - prefixSum[i - 1][j + m - 1] + prefixSum[i - 1][j - 1];
+                max = Math.max(sum, max);
+            }
+        }
+    }
     private void solution() throws IOException {
 
         System.setIn(new FileInputStream("input.txt"));
