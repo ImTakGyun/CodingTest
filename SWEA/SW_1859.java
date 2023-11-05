@@ -18,7 +18,7 @@ import java.io.*;
  *                  오히려 그전의 일자가 비싸다면 그 때의 가격을 최대 가격으로 update 하는 것이다.
  *                  이렇게 진행하면 남은 일자에서의 최대가 되는 가격은 자연스럽게 지정이되고, 우리는 새로운 최대 가격이 나타나기 전까지의 차익을 구해서 더하면 되는 것이다.
  */
-class Solution
+class SW_1859
 {
     public static int[] days;
 
