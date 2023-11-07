@@ -13,19 +13,23 @@ public class SW_1206 {
 
     public static int[] building;
 
+
+    // a번째 건물 주변에서 가장 높은 건물의 높이를 구하고 그 높이가 a번째 건물의 높이보다 크다면 0을, 작다면 그 차이를 반환한다.
     public static int check(int a){
 
-        int min = building[a];
+        int max = 0;
 
+        // a번째 건물 주변에서 가장 큰 건물의 높이를 max에 저장한다.
         for(int i = 1; i < 3; i++){
-
-            int h = building[a];
-            int m = Integer.min(h - building[a-i], h - building[a+i]);
-            if(m <= 0) return 0;
-            else if(min > m) min = m;
+            int m = Integer.max(building[a-i],building[a+i]);
+            if(m > max) max = m;
         }
 
-        return min;
+        //max가 a번째 건물 높이보다 높다면 0 반환
+        if(max >= building[a]) return 0;
+        //아니라면 차이 반환
+        else return building[a] - max;
+
     }
 
     public static void main(String args[]) throws Exception {
@@ -48,6 +52,7 @@ public class SW_1206 {
 
             int sum = 0;
 
+            // a번째 건물의 주변에서 조건에 만족하는지 확인한 후 반환되는 값들을 모두 더한다.(sum => 조건에 만족하는 층수)
             for(int i = 2; i < n-2; i++)
                 sum += check(i);
 
