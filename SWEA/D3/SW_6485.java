@@ -3,6 +3,10 @@ package SWEA.D3;
 import java.util.*;
 import java.io.*;
 
+/**
+ *  핵심 Point : 단순 구현 - 모드 정류장을 배열에 담고 노선이 지나가는 정류장에 +1 을 진행한다.
+ *                        이후 주어진 정류장의 지나가는 노선의 합을 구하면 된다.
+ */
 public class SW_6485 {
 
     public static int[] BusStop;

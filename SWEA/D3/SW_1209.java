@@ -3,6 +3,9 @@ package SWEA.D3;
 import java.util.*;
 import java.io.*;
 
+/**
+ *  핵심 Point : 단순 구현 - 모든 방향의 값들을 차례대로 계산하여 list에 담고 sort를 통해 가장 큰 값을 뽑는다.
+ */
 public class SW_1209 {
 
     public static int[][] arr;
