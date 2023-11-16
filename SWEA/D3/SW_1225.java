@@ -3,6 +3,9 @@ package SWEA.D3;
 import java.util.*;
 import java.io.*;
 
+/**
+ * 핵심 Point : <문제의 조건에 주어진 1~5만큼 감소하는 것을 반복하기 위해서는 6으로 나누는 것이 기본이 됨과 동시에 나머지가 0인 경우 1로 늘려주는 예외처리가 필요>
+ */
 public class SW_1225 {
 
     public static int[] arr;
