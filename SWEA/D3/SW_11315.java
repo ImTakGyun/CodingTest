@@ -9,11 +9,32 @@ import java.io.*;
  */
 public class SW_11315 {
 
-    public static int[][] arr;
+    public static char[][] arr;
+    public static int n;
+    public static String result;
 
-    // 동, 남, 남동, 남서
-    public static int[] dx = {0, 1, 1, 1};
-    public static int[] dy = {1, 0, 1, -1};
+    public static int[] dx = {0, 1 ,1, 1};
+    public static int[] dy = {1, -1, 0, 1};
+
+    public static void dfs(int x, int y, int count, int dr) {
+
+        if(count == 5) {
+            result = "YES";
+            return;
+        }
+
+        int nx = x + dx[dr];
+        int ny = y + dy[dr];
+
+        if(nx >= 0 && nx < n && ny >= 0 && ny < n) {
+            if(arr[nx][ny] == 'o'){
+                int c = count + 1;
+                dfs(nx, ny, c, dr);
+                if(result == "YES") return;
+            }
+            else return;
+        }
+    }
 
     public static void main(String args[]) throws Exception
     {
@@ -25,53 +46,29 @@ public class SW_11315 {
         for(int test_case = 1; test_case <= T; test_case++)
         {
             st = new StringTokenizer(br.readLine());
-            int n = Integer.parseInt(st.nextToken());
+            n = Integer.parseInt(st.nextToken());
+            result = "NO";
 
-            arr = new int[n][n];
+            arr = new char[n][n];
 
-            for(int i = 0; i < n; i++){
+            for(int i = 0; i < n; i++) {
                 String str = br.readLine();
-
-                for(int j = 0; j < n; j++){
-                    if(str.charAt(j) == '.') arr[i][j] = 0;
-                    else arr[i][j] = 1;
+                for(int j = 0; j < n; j++) {
+                    arr[i][j] = str.charAt(j);
                 }
             }
 
-            String result = "NO";
-
-            for(int i = 0; i < n; i++){
-                for(int j = 0; j < n; j++){
-                    if(arr[i][j] == 0) continue;
-                    for(int dr = 0; dr < 4; dr++){
-                        int check = 1;
-                        int x = i;
-                        int y = j;
-
-                        for(int k = 0; k < 4; k++){
-                            int nx = x + dx[dr];
-                            int ny = y + dy[dr];
-                            if(nx >= 0 && nx < n && ny >= 0 && ny < n) {
-                                if (arr[nx][ny] == 1) {
-                                    x = nx;
-                                    y = ny;
-                                    check++;
-                                } else break;
-                            }
-                            else break;
-                        }
-
-                        if(check == 5) {
-                            result = "YES";
-                            break;
+            for(int i = 0; i < n; i++) {
+                for(int j = 0; j < n; j++) {
+                    if(arr[i][j] == 'o'){
+                        for(int k = 0; k < 4; k++) {
+                            dfs(i, j, 1, k);
                         }
                     }
                 }
             }
 
             System.out.println("#" + test_case + " " + result);
-
         }
     }
-
 }

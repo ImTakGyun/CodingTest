@@ -3,6 +3,9 @@ package SWEA.D3;
 import java.util.*;
 import java.io.*;
 
+/**
+ *  핵심 Point : 단순 구현 - 0,1이 변경되는 횟수
+ */
 class SW_1289 {
     public static int[] memory;
 
