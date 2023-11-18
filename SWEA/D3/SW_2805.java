@@ -58,24 +58,29 @@ public class SW_2805 {
              *   start와 end를 설정하여 풀이한다.
              */
 
+            // 0번 행에서 계산할 값이 들어있는 위치 설정
             int start = n/2;
             int end = n/2;
 
+            // 0번 행에서부터 시작한다.
             for(int i = 0; i < n; i++){
+                // start부터 end까지의 총합을 구한다.
                 for(int j = start; j <= end; j++){
                     sum += arr[i][j];
                 }
 
+                // 행 번호가 전체의 1/2 미만이라면 계산 범위를 늘려준다.
                 if(i < (n/2)){
                     start -= 1;
                     end += 1;
                 }
+                // 행 번호가 전체의 1/2 이상이라면 계산 범위를 좁혀준다.
                 else{
                     start += 1;
                     end -= 1;
                 }
             }
-
+            // 계산 범위가 늘었다가 줄음을 통해 마름모 계산이 가능하다.
             System.out.println("#" + test_case + " " + sum);
         }
     }

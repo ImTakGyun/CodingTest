@@ -3,6 +3,11 @@ package SWEA.D4;
 import java.util.*;
 import java.io.*;
 
+/**
+ *  핵심 Point : <완전 탐색 + 백트래킹> : n개의 숫자들 중 조합을 통해 주어진 b보다 큰 경우의 수를 계산해야한다.
+ *                                  이 때, 주어진 숫자들을 순차적으로 순회하며 해당 숫자를 더하는 경우와 더하지 않는 경우로 나누어 모든 경우를 계산한다.
+ *                                  백트래킹을 통해 회귀하며 모든 경우를 계산한다.
+ */
 public class SW_1486 {
     public static int n;
     public static int b;
@@ -43,6 +48,7 @@ public class SW_1486 {
                 arr[i] = Integer.parseInt(st.nextToken());
             }
 
+            // 완전탐색 + 백트래킹 => 수어진 숫자열을 시작부터 순회하며 더할지 말지 경우를 나누어 모든 경우를 계산한다.
             dfs(0, 0);
 
             Collections.sort(height);
