@@ -32,7 +32,8 @@ public class SW_1209 {
 
             ArrayList<Integer> list = new ArrayList<>();
 
-            int cross = 0;
+            int cross1 = 0;
+            int cross2 = 0;
 
             for(int i = 0; i < 100; i++){
 
@@ -46,11 +47,12 @@ public class SW_1209 {
                 list.add(s1);
                 list.add(s2);
 
-
-                cross += arr[i][i];
+                cross1 += arr[i][i];
+                cross2 += arr[i][99-i];
             }
 
-            list.add(cross);
+            list.add(cross1);
+            list.add(cross2);
 
             Collections.sort(list);
 
