@@ -109,3 +109,4 @@ public class Template {
         new Template().solution();
     }
 }
+
