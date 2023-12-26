@@ -17,38 +17,35 @@ import java.io.*;
  */
 public class 실전_효율적인화폐구성 {
 
-    public void solution()throws IOException{
+    public void solution()throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
 
-
         int[] coin = new int[n];
-        for(int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             coin[i] = Integer.parseInt(st.nextToken());
         }
 
         Arrays.sort(coin);
 
-        int[] cnt = new int[m+1];
-        Arrays.fill(cnt, 10001);
+        int[] dp = new int[m + 1];
+        Arrays.fill(dp, 10001);
 
-        cnt[0] = 0;
+        dp[0] = 0;
 
-        for(int i = 0; i < n; i++){
-            for(int j = coin[i]; j < m+1; j++){
+        for (int value : coin) {
+            for (int i = value; i <= m; i++) {
                 // (i-k)원을 만드는 방법이 존재하는 경우
-                if(cnt[j - coin[i]] != 10001){
-                    cnt[j] = Math.min(cnt[j], cnt[j -coin[i]] + 1);
-                }
+                if (dp[i - value] != 10001) dp[i] = Integer.min(dp[i], dp[i - value] + 1);
             }
         }
 
-        if(cnt[m] == 10001) System.out.println(-1);
-        else System.out.println(cnt[m]);
+        if (dp[m] == 10001) System.out.println(-1);
+        else System.out.println(dp[m]);
     }
 
     public static void main(String[] args) throws IOException {
