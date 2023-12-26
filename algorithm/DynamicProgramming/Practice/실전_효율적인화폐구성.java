@@ -37,6 +37,7 @@ public class 실전_효율적인화폐구성 {
 
         dp[0] = 0;
 
+        // 화폐 단위를 거슬러 올라가면서 지정된 금액에서 화폐의 값을 뺐을 때, 화폐 구성이 가능하다면 비교해준다.
         for (int value : coin) {
             for (int i = value; i <= m; i++) {
                 // (i-k)원을 만드는 방법이 존재하는 경우
@@ -46,6 +47,30 @@ public class 실전_효율적인화폐구성 {
 
         if (dp[m] == 10001) System.out.println(-1);
         else System.out.println(dp[m]);
+
+//      방법2 -> 금액을 거슬러 올라가며 화폐 단위마다 "금액 - 화폐 단위"를 구성할 수 있다면 비교해준다.
+//        int[] coins = new int[n];
+//        for(int i = 0; i < n; i++) {
+//            st = new StringTokenizer(br.readLine());
+//            coins[i] = Integer.parseInt(st.nextToken());
+//        }
+//
+//        Arrays.sort(coins);
+//
+//        int[] dp = new int[m+1];
+//        Arrays.fill(dp, 10001);
+//
+//        dp[0] = 0;
+//
+//        for(int i = coins[0]; i <= m; i++){
+//            for(int coin : coins){
+//                if(i % coin == 0) dp[i] = Math.min(i / coin , dp[i]);
+//                else if(i - coin >= 0 && dp[i - coin] != 10001) dp[i] = Math.min(dp[i - coin] + 1, dp[i]);
+//            }
+//        }
+//
+//        if(dp[m] == 10001) System.out.println(-1);
+//        else System.out.println(dp[m]);
     }
 
     public static void main(String[] args) throws IOException {
