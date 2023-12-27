@@ -3,6 +3,9 @@ package algorithm.DynamicProgramming.Practice;
 import java.util.*;
 import java.io.*;
 
+/**
+ *  회고 : 바텀업이 핵심! -> dp는 누적된 값을 저장하고 golds는 금광을 나타낸다. 따라서 새로운 누적을 구할 경우 <dp + golds> 를 기준으로 비교해야하는 걸 주의하자.
+ */
 public class Q31_금광 {
 
     static int n,m;
