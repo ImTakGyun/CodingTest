@@ -48,7 +48,7 @@ public class Q35_못생긴수 {
             // 가능한 곱셈 결과 중에서 가장 작은 수를 선택
             ugly[i] = Math.min(next2, Math.min(next3, next5));
 
-            // 인덱스에 따라서 곱셈 결과를 증가
+            // 인덱스에 따라서 곱셈 결과를 증가 + 중복 제거 ( EX 2 * 3, 3 * 2 = 6)
             if(ugly[i] == next2){
                 i2++;
                 next2 = ugly[i2] * 2;
